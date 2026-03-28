@@ -26,6 +26,9 @@ licenses = load_db()
 # ===== REGISTER =====
 @app.route("/register", methods=["POST"])
 def register():
+    global licenses
+    licenses = load_db()   # 🔥 ADD THIS LINE
+
     data = request.json
     device = data.get("device_id")
     expiry = data.get("expiry")
@@ -43,6 +46,9 @@ def register():
 # ===== VERIFY =====
 @app.route("/verify", methods=["POST"])
 def verify():
+    global licenses
+    licenses = load_db()   # 🔥 ADD THIS LINE
+
     data = request.json
     device = data.get("device_id")
 
