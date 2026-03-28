@@ -1,3 +1,5 @@
+# License Registration API
+
 from flask import Flask, request, jsonify, redirect
 import time
 import os
@@ -33,7 +35,12 @@ def register():
         "blocked": False,
         "created": int(time.time())
     }
+    
+    save_db(licenses)
+    return jsonify({"message": "Device registered successfully."}), 201
 
+if __name__ == "__main__":
+    app.run(debug=True)
     save_db(licenses)
 
     return jsonify({"status": "registered"})
