@@ -179,7 +179,6 @@ def panel():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     app.run(host="0.0.0.0", port=port)
-    }
     
     save_db(licenses)
     return jsonify({"message": "Device registered successfully."}), 201
